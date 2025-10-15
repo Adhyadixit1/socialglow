@@ -1,4 +1,5 @@
 import { Instagram, Twitter, Linkedin, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = {
@@ -6,6 +7,32 @@ const Footer = () => {
     Company: ["About Us", "Our Team", "Careers", "Case Studies", "Blog"],
     Resources: ["Free Audit", "Growth Guide", "Webinars", "Templates", "Newsletter"],
     Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR"],
+  };
+
+  const pathMap: Record<string, string> = {
+    // Services
+    "Social Media Strategy": "/social-media-strategy",
+    "Content Creation": "/content-creation",
+    "Community Management": "/community-management",
+    "Paid Advertising": "/paid-advertising",
+    "Analytics & Reporting": "/analytics-reporting",
+    // Company
+    "About Us": "/about-us",
+    "Our Team": "/our-team",
+    Careers: "/careers",
+    "Case Studies": "/case-studies",
+    Blog: "/blog",
+    // Resources
+    "Free Audit": "/free-audit",
+    "Growth Guide": "/growth-guide",
+    Webinars: "/webinars",
+    Templates: "/templates",
+    Newsletter: "/newsletter",
+    // Legal
+    "Privacy Policy": "/privacy-policy",
+    "Terms of Service": "/terms-of-service",
+    "Cookie Policy": "/cookie-policy",
+    GDPR: "/gdpr",
   };
 
   return (
@@ -55,12 +82,12 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
+                    <Link
+                      to={pathMap[link] || "#"}
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {link}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -94,15 +121,15 @@ const Footer = () => {
             © 2024 SocialGlow. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Privacy
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            </Link>
+            <Link to="/terms-of-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Terms
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            </Link>
+            <Link to="/cookie-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Cookies
-            </a>
+            </Link>
           </div>
         </div>
       </div>
