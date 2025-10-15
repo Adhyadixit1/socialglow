@@ -53,13 +53,13 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
                 hello@socialglow.com
               </a>
-              <a href="tel:+1234567890" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="tel:+14157777102" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <Phone className="w-4 h-4" />
-                +1 (234) 567-890
+                (415) 777-7102
               </a>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4" />
-                San Francisco, CA
+                901 Mission St, San Francisco, CA 94103
               </div>
             </div>
 
