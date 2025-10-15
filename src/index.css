@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Premium Dark Purple Theme */
+    --background: 255 15% 8%;
+    --foreground: 255 10% 95%;
+
+    --card: 255 20% 12%;
+    --card-foreground: 255 10% 95%;
+
+    --popover: 255 25% 10%;
+    --popover-foreground: 255 10% 95%;
+
+    --primary: 270 80% 60%;
+    --primary-foreground: 255 10% 98%;
+
+    --secondary: 255 20% 18%;
+    --secondary-foreground: 255 10% 95%;
+
+    --muted: 255 15% 15%;
+    --muted-foreground: 255 8% 65%;
+
+    --accent: 270 80% 60%;
+    --accent-foreground: 255 10% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 255 10% 98%;
+
+    --border: 255 20% 20%;
+    --input: 255 20% 18%;
+    --ring: 270 80% 60%;
+
+    --radius: 1rem;
+
+    /* Glow colors */
+    --glow-primary: 270 80% 60%;
+    --glow-secondary: 280 70% 65%;
+    --glow-accent: 260 90% 70%;
+
+    /* Glassmorphism */
+    --glass-bg: 255 20% 12% / 0.6;
+    --glass-border: 255 30% 30% / 0.3;
+  }
+}
+
+@layer utilities {
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.5),
+                0 0 40px hsl(var(--glow-primary) / 0.3),
+                0 0 60px hsl(var(--glow-primary) / 0.1);
+  }
+
+  .glow-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.6),
+                0 0 60px hsl(var(--glow-primary) / 0.4),
+                0 0 90px hsl(var(--glow-primary) / 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Glassmorphism */
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .glass-nav {
+    background: hsl(255 20% 12% / 0.4);
+    backdrop-filter: blur(30px) saturate(150%);
+    border: 1px solid hsl(255 30% 30% / 0.2);
+  }
+
+  /* Floating animation */
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, 
+      hsl(var(--glow-primary)), 
+      hsl(var(--glow-secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Scroll fade in */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
